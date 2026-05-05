@@ -1,0 +1,190 @@
+/* Paleta de colores SimRacing */
+:root {
+    --rojo-f1: #e10600;
+    --verde-neon: #00ff41;
+    --fondo: #0a0a0a;
+    --tarjeta: #161616;
+    --texto: #f0f0f0;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Encabezado con degradado agresivo */
+header {
+    background: linear-gradient(180deg, #4b0000 0%, #000000 100%);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: 3px solid var(--verde-neon);
+}
+
+.img-perfil {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--verde-neon);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+    object-fit: cover; /* Evita que la foto se deforme */
+}
+
+h1 {
+    margin: 1rem 0 0.5rem 0;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Contenedor y Secciones */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Secciones con resplandor uniforme en todas las direcciones */
+section {
+    background: var(--tarjeta);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    border: none; /* Adiós definitivo a la franja roja lateral */
+
+    /* Resplandor uniforme: 0px de desplazamiento (x e y), 
+       20px de desenfoque y un gris claro transparente */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+    /* Degradado radial sutil para el fondo de la tarjeta */
+    background-image: radial-gradient(
+        circle, 
+        #252525 0%, 
+        var(--tarjeta) 100%
+    );
+
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+h2 {
+    color: var(--verde-neon);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-top: 0;
+    letter-spacing: 2px;
+}
+
+/* Estilos de Formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+/* Inputs con aspecto de consola de datos */
+input, textarea {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 3px;
+    font-family: inherit;
+    box-sizing: border-box; 
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--verde-neon);
+}
+
+/* Botón que parece un interruptor de arranque */
+button {
+    background-color: var(--rojo-f1);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--verde-neon);
+    color: black;
+    box-shadow: 0 0 15px var(--verde-neon);
+}
+
+/* Enlaces y Footer */
+.github-link {
+    display: inline-block;
+    color: var(--verde-neon);
+    text-decoration: none;
+    border: 1px dashed var(--verde-neon);
+    padding: 0.5rem 1rem;
+    transition: 0.3s;
+}
+
+.github-link:hover {
+    background: var(--verde-neon);
+    color: black;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+/* Estilo para las listas de habilidades */
+ul {
+    list-style: circle;
+    padding: 0;
+}
+
+.bandera-cuadros-arriba {
+    height: 50px; /* Altura de la franja */
+    width: 100%;
+    
+    /* Creamos el patrón de cuadros con solo 2 líneas */
+    background-image: conic-gradient(#fff 90deg, #000 90deg 180deg, #fff 180deg 270deg, #000 270deg);
+    background-size: 40px 40px; /* Tamaño de los cuadros */
+
+    /* El degradado hacia el main */
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+    
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.bandera-cuadros-abajo {
+    height: 50px;
+    width: 100%;
+    
+    /* El mismo patrón de cuadros sencillo */
+    background-image: conic-gradient(#fff 90deg, #000 90deg 180deg, #fff 180deg 270deg, #000 270deg);
+    background-size: 40px 40px;
+
+    /* Transparencia al revés: de transparente a negro (opaco) */
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    mask-image: linear-gradient(to top, black, transparent);
+    
+    opacity: 0.8;
+    margin-top: 20px; /* Espacio con lo que haya arriba */
+}

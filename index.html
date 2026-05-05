@@ -3,53 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional Miguel Ángel Durán Muñoz</title>
+    <title>Mi-portfolio | Miguel Ángel Durán Muñoz</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Encabezado con Imagen y Datos Principales -->
     <header>
-        <img src="img/curriculum.JPG" alt="Foto de perfil" width="150">
+        <img src="img/curriculum.JPG" alt="Miguel Ángel Durán Muñoz" class="img-perfil">
         <h1>Miguel Ángel Durán Muñoz</h1>
-        <p>Desarrollador en formación | Entusiasta de la tecnología</p>
+        <p class="subtitle"><strong>Desarrollador en formación</strong> | Entusiasta de la tecnología</p>
     </header>
 
-    <hr>
+    <div class="bandera-cuadros-arriba"></div>
 
-    <!-- Sección: Sobre Mí -->
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-            Hola, soy Miguel Ángel. Me apasiona la tecnología y actualmente estoy 
+    <main>
+        <section class="sobre-mi">
+            <h2>Sobre mí</h2>
+            <p>
+                Hola, soy Miguel Ángel. Me apasiona la tecnología y actualmente estoy 
             aprendiendo a construir soluciones web. Me considero una persona, retro, curiosa 
-            y siempre dispuesta a enfrentar nuevos retos técnicos. Mi sueño es hacer cosas
-            grandes en la zona en la que nací, Castilla la Macha.
-        </p>
-    </section>
+            y siempre dispuesta a enfrentar nuevos retos técnicos. Mi sueño es hacer  cosas
+            en la zona en la que nací, <strong>Castilla la Macha</strong>.
+            </p>
+        </section>
 
-    <!-- Sección: Habilidades Laborales -->
-    <section id="habilidades">
-        <h2>Habilidades Laborales</h2>
-        <ul>
-            <li>Desarrollo Web (HTML, CSS)</li>
-            <li>Gestión de versiones con Git y GitHub</li>
-            <li>Resolución de problemas técnicos</li>
-            <li>Trabajo en equipo y comunicación efectiva</li>
-        </ul>
-    </section>
+        <section class="habilidades">
+            <h2>Habilidades Laborales</h2>
+            <ul>
+                <li>Desarrollo Frontend (HTML, CSS)</li>
+                <li>Control de Tracción (Git & GitHub)</li>
+                <li>Resolución de problemas técnicos</li>
+                <li>Trabajo en equipo y comunicación efectiva</li>
+            </ul>
+        </section>
 
-    <!-- Sección: Enlaces y Proyectos -->
-    <section id="proyectos">
-        <h2>Mis Enlaces y Contacto</h2>
-        <p>Puedes ver mis trabajos y contactarme en los siguientes enlaces:</p>
-        <ul>
-            <li><a href="https://github.com/tu-usuario" target="_blank">Mi Perfil de GitHub</a></li>
-            <li><a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn Profesional</a></li>
-        </ul>
-    </section>
+        <section class="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" class="nombre" name="nombre" placeholder="Tu nombre..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje / Sugerencia</label>
+                    <textarea id="mensaje" class="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section class="paddock">
+            <h2>Proyectos</h2>
+            <a href="https://github.com/madzorca/mi-portfolio.git" target="_blank" class="github-link">Mi Perfil de GitHub</a>
+        </section>
+    </main>
+
+    <div class="bandera-cuadros-abajo"></div>
 
     <footer>
-        <p>&copy; 2026 - Creado con gusto para el curso en Cojali</p>
+        <p>&copy; 2026 - Miguel Ángel Durán Muñoz | Con gusto para el curso en Cojali</p>
     </footer>
 
 </body>
