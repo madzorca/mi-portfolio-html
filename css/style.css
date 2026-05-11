@@ -1,20 +1,54 @@
 /* Paleta de colores OutRun / SEGA Sky */
 :root {
-    --rojo-neon: #ff0055;    /* El rosa/rojo del logo de OutRun */
-    --verde-neon: #33ff00;   /* Verde brillante de recreativa */
-    --azul-sega: #0066ff;    /* El legendario SEGA Sky Blue */
-    --amarillo-sun: #ffcc00; /* Amarillo eléctrico */
-    --fondo: #050520;        /* Azul noche profundo */
-    --tarjeta: #101035;      /* Azul oscuro para las secciones */
-    --texto: #f0f0f0;
+    /* Colores de marca (OutRun) */
+    --rojo-neon: #ff0055;
+    --verde-neon: #33ff00;
+    --azul-sega: #0066ff;
+    --amarillo-sun: #ffcc00;
+    
+    /* Variables que cambiarán con el modo */
+    --bg-color: #050520;    /* Tu azul noche profundo por defecto */
+    --tarjeta: #101035;     /* Azul oscuro para secciones */
+    --text-color: #f0f0f0;
+    --accent-color: var(--rojo-neon);
+}
+
+/* Modo Claro (Inversión de colores y ajustes varios) */
+body.light-mode {
+    --bg-color: #f8f9fa;
+    --tarjeta: #ffffff;     
+    --text-color: #1a1a2e; /* Un azul casi negro para mejor lectura */  
+    --accent-color: var(--azul-sega);
+    /* Añadimos esta para que las sombras no sean rojas en modo claro */
+    --shadow-color: rgba(0, 102, 255, 0.1); 
+}
+
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode .menu-navegacion a {
+    text-shadow: none; /* Quitamos el relieve retro que ensucia el texto claro */
+    color: var(--text-color);
+}
+
+body.light-mode .menu-navegacion a {
+    border-bottom: 2px solid var(--azul-sega);
+}
+
+body.light-mode .subtitle {
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 body {
-    background-color: var(--fondo);
-    color: var(--texto);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    /* Usamos min-height para que el fondo cubra toda la pantalla siempre */
+    min-height: 100vh; 
     line-height: 1.6;
+    /* La transición debe incluir 'all' o los elementos específicos para que no parpadee */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Encabezado: El cielo de SEGA */
@@ -23,6 +57,16 @@ header {
     padding: 3rem 1rem;
     text-align: center;
     border-bottom: 4px solid var(--amarillo-sun);
+}
+
+#theme-toggle {
+    width: auto; /* Que solo ocupe lo que mide el texto */
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    position: absolute; /* Para moverlo libremente */
+    top: 15px;
+    right: 15px;
+    z-index: 100; /* Para que siempre esté por encima de todo */
 }
 
 .img-perfil {
@@ -67,7 +111,7 @@ section {
     /* Degradado radial de dentro a fuera */
     background-image: radial-gradient(
         circle, 
-        #1a1a4a 0%, 
+        rgba(255, 255, 255, 0.05) 0%, 
         var(--tarjeta) 100%
     );
 
@@ -89,7 +133,7 @@ section {
 
 section:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 30px var(--rojo-neon);
+    box-shadow: 0 0 30px var(--accent-color);
 }
 
 h2 {
@@ -117,13 +161,14 @@ label {
 
 input, textarea {
     width: 100%;
-    background: #000;
-    border: 1px solid var(--azul-sega);
-    color: white;
+    background: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
     padding: 0.8rem;
     border-radius: 3px;
     font-family: inherit;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
@@ -181,8 +226,6 @@ ul {
     padding: 0;
 }
 
-
-
 /* Banderas ajustadas al tono */
 .bandera-cuadros-arriba, .bandera-cuadros-abajo {
     height: 50px;
@@ -230,7 +273,8 @@ ul {
     display: flex; /* Pone los elementos en horizontal */
     justify-content: center; /* Los centra en la pantalla */
     gap: 30px; /* Espacio entre cada enlace */
-    background-color: var(--fondo); /* Fondo oscuro para que resalte */
+    background-color: var(--tarjeta); /* Cambiado de --fondo a --tarjeta para que sea dinámico */
+    border-bottom: 2px solid var(--accent-color);
 }
 
 /* Estilo de los enlaces */
