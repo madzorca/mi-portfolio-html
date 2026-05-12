@@ -34,3 +34,15 @@ themeToggle.addEventListener('click', () => {
         themeToggle.innerText = 'MODO CLARO';
     }
 });
+
+// Funcionalidad nuevo campo "estudios"
+const formularioConocimiento = document.getElementById("nuevo-conocimiento");
+
+formularioConocimiento.addEventListener("submit",function(e){
+    let info = document.querySelector("#new-item").value;
+    let estudios = document.querySelector("#estudios");
+    estudios.classList.remove("estudios");
+    estudios.innerHTML += `<p>${info}</p>`; 
+    formularioConocimiento.reset();
+    e.preventDefault();
+});
