@@ -246,6 +246,46 @@ ul {
     mask-image: linear-gradient(to top, black, transparent);
     margin-top: 20px;
 }
+/*Reglas para la api github*/
+/* --- Tarjeta Dinámica de GitHub --- */
+.github-card {
+    background: var(--tarjeta);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
+    border: 1px dashed var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+#avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+    object-fit: cover;
+}
+
+.github-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+#repos {
+    color: var(--verde-neon);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Ajuste para el modo claro */
+body.light-mode #repos {
+    color: var(--azul-sega);
+}
 
 /* RESPONSIVE: Si se ve en un móvil, se ponen una debajo de otra */
 @media (max-width: 770px) {

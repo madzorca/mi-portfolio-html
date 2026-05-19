@@ -46,3 +46,30 @@ formularioConocimiento.addEventListener("submit",function(e){
     formularioConocimiento.reset();
     e.preventDefault();
 });
+
+// Usuario de GitHub fijo
+// --- Conexión con la API de GitHub ---
+const GITHUB_USER = "madzorca"; 
+
+async function cargarPerfilGitHub() {
+    try {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USER}`);
+
+        if (!response.ok) {
+            throw new Error("No se pudo conectar con GitHub");
+        }
+
+        const data = await response.json();
+
+        // Inyectamos los datos reales de la API en el HTML
+        document.getElementById("avatar").src = data.avatar_url;
+        document.getElementById("repos").textContent = data.public_repos;
+
+    } catch (err) {
+        console.error("Error al cargar la API de GitHub:", err.message);
+        document.getElementById("repos").textContent = "Error";
+    }
+}
+
+// Ejecuta la función automáticamente cuando la página se haya cargado del todo
+document.addEventListener("DOMContentLoaded", cargarPerfilGitHub);
